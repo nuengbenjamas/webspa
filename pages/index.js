@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/Outline'
 
 const navigation = [
   { name: 'Product', href: '#' },
-  { name: 'About', href: '#' },
+  { name: 'About', href: './about' },
   { name: 'Admin', href: '#' },
   { name: 'Config', href: '#' },
 ]
