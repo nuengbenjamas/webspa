@@ -1,7 +1,25 @@
 .container {
-  padding: 0 2rem;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1.20;
+  color: azure;
 }
-
+.show{
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: center;
+  color: inherit;
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+  background-color: lightgray ;
+  color: brown;
+  font-size: 40px;
+}
 .main {
   min-height: 100vh;
   padding: 4rem 0;
