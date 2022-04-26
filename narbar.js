@@ -1,11 +1,13 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/Outline'
+import { MenuIcon } from '@heroicons/react/Outline'
 
 const navigation = [
-  { name: 'Product', href: '#' },
+  { name: 'Product', href: './product' },
   { name: 'About', href: './about' },
   { name: 'Config', href: './getConfig' },
+  { name: 'Admin', href: './floweredit' },
+  { name: 'Profile', href: './profile' },
 ]
 
 export default function Navbar() {
@@ -37,9 +39,8 @@ export default function Navbar() {
                       {item.name}
                     </a>
                   ))}
-                  <a href="login" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Log in
-                  </a>
+                  <a href="login" className="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+                 
                 </div>
               </nav>
             </div>
@@ -72,7 +73,7 @@ export default function Navbar() {
                     href="#"
                     className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
                   >
-                    Log in
+                    Admin Log in
                   </a>
               </Popover.Panel>
             </Transition>

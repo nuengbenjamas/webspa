@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import Layout from '../components/layout'
-import Navbar from '../components/navbar'
+import Layout from '../layout'
+import Narbar from '../narbar'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
-import withAuth from '../components/withAuth'
-import config from '../config/config'
+import withAuth from '../withAuth'
+import config from '../config'
 
 const Profile1 = ({ token }) => {
 
@@ -30,16 +29,7 @@ const Profile1 = ({ token }) => {
  
     return (
         <Layout>
-            <Head>
-                <title>Profile Page</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
-                <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-                <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-            </Head>
-            <Navbar />
+            <Narbar />
             <div className={styles.container}>
             <div className={styles.title}>
                 <h1 className={styles.texttitle}><ins><b>User profile</b></ins></h1> 
@@ -52,7 +42,6 @@ const Profile1 = ({ token }) => {
                     <br/><br/>
                     <center><img src="/./pic/icon.png" alt="icon" width="200" height="200"></img></center>
                     <h5><b>{JSON.stringify(user)}</b></h5>
-                    
                 </div>
             </div>
            

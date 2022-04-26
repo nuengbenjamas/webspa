@@ -6,9 +6,37 @@
   justify-content: center;
   align-items: center;
   opacity: 1.20;
-  color: azure;
+  color: rgb(220, 213, 191);
 }
-.show{
+.title a:hover,
+.title a:focus,
+.title a:active {
+    text-decoration: underline;
+  }
+  
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-weight: bold;
+    color: orangered;
+  }
+.texttitle{
+    font-size: 5rem;
+    color: purple;
+    background-color: #fff;
+    opacity: 0.90;
+    
+}
+.title,
+.description {
+    text-align: center;
+  }  
+
+.show,.showlogin{
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
@@ -19,7 +47,73 @@
   background-color: lightgray ;
   color: brown;
   font-size: 40px;
+  color: blue;
 }
+.texth1{
+  text-shadow: 0px 0px 20px purple, 0 0 5px blue;
+}
+.text4{
+  color: brown;
+}
+.btn1{
+  background-color: brown;
+  border-radius: 10%;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.content {
+  min-width: 25vw;
+}
+.btn{
+  background-color: green;
+  border-radius: 10%;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn {
+    background-color: green;
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid green;
+}
+.btn:hover{
+    background-color: rgb(15, 177, 15);
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid rgb(15, 177, 15);
+}
+.btn1 {
+    background-color: brown;
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid brown;
+}
+.btn1:hover{
+    background-color: red;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid red;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -125,7 +219,20 @@
   height: 1em;
   margin-left: 0.5rem;
 }
-
+.showvideo2{
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+  background-color: lightgray ;
+  color: orangered;
+}
+.showvideo2{
+color: purple;
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;

@@ -1,59 +1,66 @@
-import { LockClosedIcon } from '@heroicons/react/solid'
+import { LockClosedIcon } from '@heroicons/react/solid';
 import { useState } from "react";
+import { ImExit } from "react-icons/im";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
+import Navbar from '../narbar';
 import config from "../config";
 
+
 export default function Login({ token }) {
-          const [username, setUsername] = useState("");
-          const [password, setPassword] = useState("");
-          const [status, setStatus] = useState("");
-          const [remember, setRemember] = useState(false);
-          const login = async (req, res) => {
-            try {
-              let result = await axios.post(`${config.URL}/login`,{ username, password, remember },{ withCredentials: true });
-              console.log("result: ", result);
-              console.log("result.data:  ", result.data);
-              console.log("token:  ", token);
-              setStatus(result.status + ": " + result.data.user.username);
-            } 
-            catch (e) {
-              console.log("error: ", JSON.stringify(e.response));
-              setStatus(JSON.stringify(e.response).substring(0, 80) + "...");
-            }
-          };
-          const reMem = async () => {
-            setRemember(!remember);
-          };
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [status, setStatus] = useState("");
+  const [remember, setRemember] = useState(false);
+  const login = async (req, res) => {
+    try {
+          let result = await axios.post(`${config.URL}/login`,{ username, password, remember },{ withCredentials: true });
+          console.log("result: ", result);
+          console.log("result.data:  ", result.data);
+          console.log("token:  ", token);
+          setStatus(result.status + ": " + result.data.user.username);
+        } 
+    catch (e) {
+                console.log("error: ", JSON.stringify(e.response));
+                setStatus(JSON.stringify(e.response).substring(0, 80) + "...");
+              }
+  };
+
+  const reMem = async () => {
+    setRemember(!remember);
+  };
         
-          const copyText = () => {
-            navigator.clipboard.writeText(token);
-          };
+  const copyText = () => {
+    navigator.clipboard.writeText(token);
+  };
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-50">
-        <body class="h-full">
-        ```
-      */}
+      {}
+      <Navbar />
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
+          
             <img
               className="mx-auto h-20 w-auto"
               src="https://thumbs.dreamstime.com/b/three-persons-admin-icon-outline-three-persons-admin-vector-icon-color-flat-isolated-three-persons-admin-icon-color-outline-vector-233074232.jpg"
               alt=""
             />
+            <br/>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+            </div>
+              <div className="text-sm">
+                 <a href="logout" className="font-medium text-red-600 text-xl hover:text-red-500"><ImExit/>Log out</a>
+              </div>
+            </div>
           </div>
           <div>
           <b>Token:</b> {token.substring(0, 15)}...
           <button className="font-medium text-indigo-600 bg-indigo-200  hover:text-indigo-500" onClick={copyText}> Copy token </button>
           </div><div className={styles.text4}><h4><b>Status: <i>{status}</i></b></h4></div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" action="floweredit" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -104,7 +111,7 @@ export default function Login({ token }) {
 
               <div className="text-sm">
                  <ins><i>Do not have an account?</i></ins><br></br>
-                <a href="#" className="font-medium text-red-600 hover:text-red-500">
+                <a href="/register" className="font-medium text-red-600 hover:text-red-500">
                 Register
                 </a>
               </div>
@@ -129,5 +136,5 @@ export default function Login({ token }) {
   )
 }
 export function getServerSideProps({ req, res }) {
-          return { props: { token: req.cookies.token || "" } };
+  return { props: { token: req.cookies.token || "" } };
 }

@@ -1,16 +1,15 @@
-import Head from 'next/head';
 import Layout from '../layout';
 import useSWR, { mutate } from "swr";
 import axios from "axios";
 import React, {  } from "react";
 import styles from "../styles/Home.module.css";
 import style from "../styles/Index.module.css";
-import Narbar from "../navbar";
-const URL = "http://localhost/api/cars";
+import Narbar from "../narbar";
+const URL = "http://localhost/api/flowers";
 const URL_SEL = "http://localhost/api/purchase";
 const fetcher = (key) => fetch(key).then((res) => res.json());
   
-  const carstore = ({token}) => {
+  const flowerstore = ({token}) => {
     const {data} = useSWR(URL,fetcher);
 
     if(!data){
@@ -18,25 +17,25 @@ const fetcher = (key) => fetch(key).then((res) => res.json());
       return <div><h1>Loading...</h1></div>
     }
 
-  const buyCar = async (id) => {
+  const buyFlower = async (id) => {
     let result = await axios.post(`${URL_SEL}/${id}`)
     mutate(URL, data);
   }
 
-  const showCars = () => {
+  const showFlowers = () => {
     if (data.list && data.list.length) {
       return data.list.map((item, index) => {
         return (
           <div>
+            <br/><br/>
             <div className={styles.showstore}>
-            <div><img src={item.src} alt="Car" width={200} height={200}></img></div><br/>
+            <div><img src={item.src} alt="Flower" width={200} height={200}></img></div><br/>
           <div className={style.listItem} key={index}>
-            <div><b>Brand:</b> {item.brand}</div>
-            <div><b>Model:</b> {item.model}</div>
-            <div><b>Color:</b> {item.color}</div>
+            <div><b>Name:</b> {item.name}</div>
+            <div><b>Type:</b> {item.type}</div>
             <div><b>Price:</b> {item.price}  ฿.</div>
             <div><b>Url Image:</b> {item.src}</div>
-            <div><center><button className={styles.btn} onClick={() => buyCar(item.id)}>Buy</button></center></div>
+            <div><center><button className={styles.btn} onClick={() => buyFlower(item.id)}>Buy</button></center></div>
           </div>
           </div>
           </div>
@@ -46,17 +45,12 @@ const fetcher = (key) => fetch(key).then((res) => res.json());
   };
   return (
     <Layout>
-       <Head>
-        <title>Product Page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    </Head>
     <Narbar />
     <div className={styles.container}>
       <div className={styles.title}>
-      <h1 className={style.text}><ins>CarStore</ins></h1></div>
+      <h1 className={style.text}><ins>FlowerStore</ins></h1></div>
       <div className={style.list}>
-        {showCars()}
+        {showFlowers()}
       </div>
     </div>
     </Layout>
@@ -67,4 +61,4 @@ export function getServerSideProps({ req, res }) {
     return { props: { token: req.cookies.token || "" } };
 }
 
-export default carstore;
+export default flowerstore;

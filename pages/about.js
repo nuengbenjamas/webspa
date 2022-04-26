@@ -1,44 +1,45 @@
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
+import Narbar from '../narbar'
 
 const features = [
   {
-    name: 'Competitive exchange rates',
+    name: 'จำหน่ายแบบดอก',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'มีดอกไม้ให้เลือกหลากหลายชนิด ราคาขึ้นอยู่กับแต่ละประเภท',
     icon: GlobeAltIcon,
   },
   {
-    name: 'No hidden fees',
+    name: 'จำหน่ายแบบช่อ',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'สามารถเลือกชนิดดอกไม้ได้ตามความต้องการ ราคาขึ้นอยู่กับขนาดของช่อที่จัด',
     icon: ScaleIcon,
   },
   {
-    name: 'Transfers are instant',
+    name: 'รับจัดดอกไม้ตามงานต่าง ๆ',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'สั่งได้ตามต้องการหรือจะให้ทางร้านออกแบบให้ตามความเหมาะสมของงาน',
     icon: LightningBoltIcon,
   },
   {
-    name: 'Mobile notifications',
+    name: 'ติดต่อ',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'ที่อยู่: มหาวิทยาลัยสงขลานครินทร์ ภูเก็ต เบอร์โทร: 093 398 3291',
     icon: AnnotationIcon,
   },
 ]
 
-export default function Example() {
+export default function About() {
   return (
     <div className="py-12 bg-white">
+      <Narbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Transactions</h2>
+          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Web SPA Project in DCW 2/2564</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            A better way to send money
+          Nueng Flower Store online Shopping
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-            accusamus quisquam.
+          บริการจำหน่ายดอกไม้ทั้งแบบดอกและช่อ รับจัดช่อดอกไม้ ในโอกาสต่าง ๆ
           </p>
         </div>
 
